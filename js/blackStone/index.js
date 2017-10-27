@@ -8,7 +8,7 @@ const MAX_WIDTH = 420;
 
 function main(){
     let userInputs = getUserInputs();
-    
+    initMaze();
     createMaze(userInputs);
     placeStone(userInputs);
 }
@@ -21,11 +21,19 @@ function getUserInputs(){
     }
 }
 
-function createMaze({row, column}){
+function initMaze(){
+    $('#maze').html("");
+}
+
+function createMaze({row, column, color}){
     let dimension = findDimension(column);
     for(let i=0; i<row*column; i++){
         $('#maze')
-            .append(`<div style="width:${dimension}px; height:${dimension}px"></div>`);
+            .append(`<div style="
+                        width:${dimension}px; 
+                        height:${dimension}px; 
+                        background-color:${color}">
+                    </div>`);
     }
 }
 
@@ -34,5 +42,11 @@ function findDimension(column){
 }
 
 function placeStone({row, column, color}){
+    let stoneCol = Math.floor(Math.random() * column) + 1;
+    let stoneRow = Math.floor(Math.random() * row) + 1;
+    let nthChild = (stoneRow - 1) * column + stoneCol; 
     
+    $(`#maze div:nth-child(${nthChild})`)
+        .css('background-color', '#000')
+        .html(`${stoneRow}, ${stoneCol}`);
 }

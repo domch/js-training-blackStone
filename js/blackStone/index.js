@@ -23,7 +23,10 @@ function getUserInputs(){
 
 function createMaze({row, column}){
     let dimension = findDimension(column);
-    $('#maze').append(`<div style="width:${dimension}px; height:${dimension}px"></div>`);
+    new Array(row*column).forEach(){
+        $('#maze')
+            .append(`<div style="width:${dimension}px; height:${dimension}px"></div>`);
+    }); 
 }
 
 function findDimension(column){

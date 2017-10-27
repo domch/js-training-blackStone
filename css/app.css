@@ -10,3 +10,7 @@ section {
     padding: 20px;
 }
 
+section#maze div{
+    display:inline-block;
+    border: 1px solid #999;
+}

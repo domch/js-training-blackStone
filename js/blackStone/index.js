@@ -15,24 +15,24 @@ function main(){
 
 function getUserInputs(){
     return {
-        row: $("#mazeRows").val(),
-        column: $("#mazeCols").val(),
+        row: +$("#mazeRows").val(),
+        column: +$("#mazeCols").val(),
         color: $("#stoneColor").val()
     }
 }
 
 function createMaze({row, column}){
     let dimension = findDimension(column);
-    new Array(row*column).forEach(){
+    for(let i=0; i<row*column; i++){
         $('#maze')
             .append(`<div style="width:${dimension}px; height:${dimension}px"></div>`);
-    }); 
+    }
 }
 
 function findDimension(column){
     return MAX_WIDTH/column;
 }
 
-function placeStone({color}){
-
+function placeStone({row, column, color}){
+    
 }

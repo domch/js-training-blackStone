@@ -27,14 +27,14 @@ function initMaze(){
 
 function createMaze({row, column, color}){
     let dimension = findDimension(column);
-    for(let i=0; i<row*column; i++){
-        $('#maze')
-            .append(`<div style="
-                        width:${dimension}px; 
-                        height:${dimension}px; 
-                        background-color:${color}">
-                    </div>`);
-    }
+    let content = 
+        `<div style="
+                width:${dimension}px; 
+                height:${dimension}px; 
+                background-color:${color}">
+        </div>`.repeat(row*column);
+    
+    $('#maze').append(content);
 }
 
 function findDimension(column){

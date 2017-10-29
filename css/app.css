@@ -17,8 +17,8 @@ section#maze{
 
 section#maze div{
     border: 1px solid #999;
-    font-size: 15px;
+    font-size: 50%;
+    line-height: 1;
     font-weight: bold;
-    text-shadow: 1px 1px 1px 1px #333;
     color: #fff;
 }

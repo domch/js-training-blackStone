@@ -38,7 +38,11 @@ function createMaze({row, column, color}){
 }
 
 function findDimension(column){
-    return MAX_WIDTH/column;
+    try{
+        return MAX_WIDTH/column;
+    } catch(e){
+      console.error("Error!");   
+    }
 }
 
 function placeStone({row, column, color}){

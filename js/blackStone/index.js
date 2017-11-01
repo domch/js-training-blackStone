@@ -11,14 +11,45 @@ $('#initialize').on("click", function(){
  */
 
 
+ const MAX_WIDTH = 438; // $('#maze').width()
+
  /**
   * The entry point of the application
   */
  function main(){
      let inputs = getUserInputs();
-     findDimenions();
-     createMaze();
+     createMaze(inputs);
      placeBlackStone();
  }
 
- 
+ function getUserInputs(){
+     return {
+         rows: +$('#numberOfRows').val(),
+         cols: +$('#numberOfCols').val(),
+         color: $('#cellColor').val()
+     }
+ }
+ function findDimensions(pCols){
+     // how many rows, cols
+     // border width, box model, outline
+     return MAX_WIDTH / pCols;
+     
+ }
+
+ /**
+  * create the grid
+  * @param {*} pInputs user inputs 
+  */
+ function createMaze({rows, cols, color}){
+    let dimension = findDimensions(cols);
+    let content = `<div style="
+                            width:${dimension}px;
+                            height:${dimension}px;
+                            background-color:${color}
+                    "></div>`.repeat(rows * cols);
+    $('#maze').html(content);
+ }
+
+ function placeBlackStone(){
+     
+ }

@@ -19,7 +19,7 @@ $('#initialize').on("click", function(){
  function main(){
      let inputs = getUserInputs();
      createMaze(inputs);
-     placeBlackStone();
+     placeBlackStone(inputs);
  }
 
  function getUserInputs(){
@@ -50,6 +50,12 @@ $('#initialize').on("click", function(){
     $('#maze').html(content);
  }
 
- function placeBlackStone(){
-     
+ function placeBlackStone({rows, cols, color}){
+    let stoneCol = Math.floor(Math.random() * cols) + 1;
+    let stoneRow = Math.floor(Math.random() * rows) + 1;
+    let nthChild = (stoneRow - 1) * cols + stoneCol; 
+    
+    $(`#maze div:nth-child(${nthChild})`)
+        .css('background-color', '#000')
+        .html(`${stoneRow}, ${stoneCol}`);
  }

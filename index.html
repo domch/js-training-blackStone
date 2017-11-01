@@ -19,14 +19,20 @@
 <body>
 
     <main>
-        <h1>Maze Generator</h1>
-        <h4>The following form helps you to create a maze</h4>
-        <section id="options">
-            Size: <input size="10" id="mazeRows"/> x <input size="10" id="mazeCols"/> <br><br>
-            Color: <input type="color" id="stoneColor" value="#ffffff"/> <br><br>
-            <button>init</button>
+        <section>
+            Size: 
+            <input type="number" name="form.rows" id="numberOfRows" />
+            x
+            <input type="number" name="form.cols" id="numberOfCols" />
+            <br>
+            Color:
+            <input type="color" name="form.color" id="cellColor" />
+            <br><br>
+            <button id="initialize">init</button>
         </section>
-        <section id="maze"></section>
+        <section id="maze">
+            ...
+        </section>
     </main>
 
 

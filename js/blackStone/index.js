@@ -2,7 +2,6 @@ $('#initialize').on("click", function(){
     main();
 });
 
-
 /**
  * 1) Get user inputs.
  * 2) Find dimensions.
@@ -22,6 +21,8 @@ $('#initialize').on("click", function(){
      placeBlackStone(inputs);
  }
 
+
+
  function getUserInputs(){
      return {
          rows: +$('#numberOfRows').val(),
@@ -29,6 +30,7 @@ $('#initialize').on("click", function(){
          color: $('#cellColor').val()
      }
  }
+
  function findDimensions(pCols){
      // how many rows, cols
      // border width, box model, outline
@@ -36,11 +38,13 @@ $('#initialize').on("click", function(){
      
  }
 
+
+
  /**
-  * create the grid
+  * creates the grid
   * @param {*} pInputs user inputs 
-  */
- function createMaze({rows, cols, color}){
+  */ 
+  function createMaze({rows, cols, color}){
     let dimension = findDimensions(cols);
     let content = `<div style="
                             width:${dimension}px;
@@ -59,3 +63,6 @@ $('#initialize').on("click", function(){
         .css('background-color', '#000')
         .html(`${stoneRow}, ${stoneCol}`);
  }
+
+ cre
+ 
